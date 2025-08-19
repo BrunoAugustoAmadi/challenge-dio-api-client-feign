@@ -1,0 +1,9 @@
+CREATE TABLE IF NOT EXISTS tb_users (
+    id UUID PRIMARY KEY NOT NULL,
+    name VARCHAR(255) NOT NULL,
+    cpf VARCHAR(50) NOT NULL,
+    id_address UUID NOT NULL,
+    created_at TIMESTAMP WITH TIME ZONE NOT NULL DEFAULT NOW(),
+    updated_at TIMESTAMP WITH TIME ZONE NOT NULL DEFAULT NOW(),
+    CONSTRAINT fk_address FOREIGN KEY (id_address) REFERENCES tb_address(id)
+);
